@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ampiditra rakitra{% endblock %}
+
+{% block body %}
+
+<div class="container mt-10">
+
+    {% for flashMessage in app.flashes('success') %}
+    <div class="alert alert-info" role="alert">{{ flashMessage }}</div>
+    {% endfor %}
+
+    <h1>Ampiditra rakitra vaovao</h1>
+    <a href="{{ path ('account')}}">Miverina</a>
+
+    {{ form_start(form)}}
+
+    <div class="row">
+        <div class="col-md-12">{{form_row(form.name)}}</div>
+        <div class="col-md-6">{{form_row(form.illustration)}}</div>
+        <div class="col-md-6">{{form_row(form.file)}}</div>
+        <div class="col-md-12">{{form_row(form.description)}}</div>
+    </div>
+        
+    {{ form_end(form)}}
+    
+</div>
+
+{% endblock %}

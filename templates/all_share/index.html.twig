@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Rakitra rehetra{% endblock %}
+
+{% block body %}
+<div class="container mt-10">
+    <h2>Lisitry ny rakitra rehetra</h2>
+
+    {% for share in liste %}
+    <div class="card text-center mt-2">
+        <div class="card-header">
+          <ul class="nav nav-pills card-header-pills">
+            <li class="nav-item">
+              <a class="nav-link" href="#">Zaraiko</a>
+            </li>
+          </ul>
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">{{share.name}}</h5>
+          <p class="card-text">{{share.description}}</p>
+          <a href="{{ asset ('uploads/')}}{{share.file}}" target="_blank" class="btn btn-info">Alaiko dia hianarako!</a>
+        </div>
+    </div>
+    {% endfor %}
+
+
+</div>
+{% endblock %}

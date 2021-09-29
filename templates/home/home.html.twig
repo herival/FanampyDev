@@ -12,7 +12,7 @@
           <h1>Fanampy Dev</h1>
           <h2>Mifampianatra, mifanampy amin'ny sehatra kajy mirindra </h2>
           <div>
-            <a href="{{ path ('app_login')}}" class="btn-get-started scrollto">Andao ary!</a>
+            <a href="{{ path ('all_share')}}" class="btn-get-started scrollto">Andao ary!</a>
           </div>
         </div>
         <div class="col-lg-6 order-1 order-lg-2 hero-img">
@@ -33,20 +33,20 @@
           <img src="assets/img/about-img.svg" class="img-fluid" alt="" data-aos="zoom-in">
         </div>
         <div class="col-lg-6 pt-5 pt-lg-0">
-          <h3 data-aos="fade-up">Voluptatem dignissimos provident quasi</h3>
+          <h3 data-aos="fade-up">Mifanampy sy mifampianatra ary mizara ny traikefa</h3>
           <p data-aos="fade-up" data-aos-delay="100">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis aute irure dolor in reprehenderit
+            Manodidina ny sehatra kajy mirindra no hivondronan'ny mpikambana ato, ary natao hampiroboroboana sy hivoaran'ny tsirairay
           </p>
           <div class="row">
             <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
               <i class="bx bx-receipt"></i>
-              <h4>Corporis voluptates sit</h4>
-              <p>Consequuntur sunt aut quasi enim aliquam quae harum pariatur laboris nisi ut aliquip</p>
+              <h4>Mianatra maimaimpoana</h4>
+              <p>Mahazo fampianarana, torolalana sy tohana maimaimpoana araky izay tratran'ny mpikambana manome izany</p>
             </div>
             <div class="col-md-6" data-aos="fade-up" data-aos-delay="200">
               <i class="bx bx-cube-alt"></i>
-              <h4>Ullamco laboris nisi</h4>
-              <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt</p>
+              <h4>Mampianatra maimaimpoana</h4>
+              <p>Manana adidy, hampianatra maimaimpoana araka izay tratrany hoan'ny mpikambana mangataka izany</p>
             </div>
           </div>
         </div>
@@ -60,42 +60,25 @@
     <div class="container" data-aos="fade-up">
 
       <div class="section-title">
-        <h2>Services</h2>
-        <p>Check out the great services we offer</p>
+        <h2><a href="{{path('all_share')}}">Fizarana</a> </h2>
+        <p>Ireto ny zavatra nozarain'ny mpikambana farany</p>
       </div>
 
       <div class="row">
-        <div class="col-md-6 col-lg-3 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+        {% set delay = 100 %}
+        {% for share in liste %}
+        <div class="col-md-6 col-lg-3 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="{{delay}}">
           <div class="icon-box">
             <div class="icon"><i class="bx bxl-dribbble"></i></div>
-            <h4 class="title"><a href="">Lorem Ipsum</a></h4>
-            <p class="description">Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate</p>
+            <h4 class="title"><a href="">{{share.name}}</a></h4>
+            <p class="description">{{share.description}}</p>
           </div>
         </div>
+        {% set delay = delay + 100 %}
+      {% endfor %}
 
-        <div class="col-md-6 col-lg-3 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="200">
-          <div class="icon-box">
-            <div class="icon"><i class="bx bx-file"></i></div>
-            <h4 class="title"><a href="">Sed ut perspiciatis</a></h4>
-            <p class="description">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla</p>
-          </div>
-        </div>
 
-        <div class="col-md-6 col-lg-3 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="300">
-          <div class="icon-box">
-            <div class="icon"><i class="bx bx-tachometer"></i></div>
-            <h4 class="title"><a href="">Magni Dolores</a></h4>
-            <p class="description">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim</p>
-          </div>
-        </div>
 
-        <div class="col-md-6 col-lg-3 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="400">
-          <div class="icon-box">
-            <div class="icon"><i class="bx bx-world"></i></div>
-            <h4 class="title"><a href="">Nemo Enim</a></h4>
-            <p class="description">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum</p>
-          </div>
-        </div>
 
       </div>
 

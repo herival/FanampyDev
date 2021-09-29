@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
@@ -67,9 +69,15 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     private $createdAt;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Share::class, mappedBy="user")
+     */
+    private $shares;
+
     public function __construct()
     {
         $this->createdAt = new \DateTime();
+        $this->shares = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -229,6 +237,36 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setCreatedAt(\DateTimeInterface $createdAt): self
     {
         $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Share[]
+     */
+    public function getShares(): Collection
+    {
+        return $this->shares;
+    }
+
+    public function addShare(Share $share): self
+    {
+        if (!$this->shares->contains($share)) {
+            $this->shares[] = $share;
+            $share->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeShare(Share $share): self
+    {
+        if ($this->shares->removeElement($share)) {
+            // set the owning side to null (unless already changed)
+            if ($share->getUser() === $this) {
+                $share->setUser(null);
+            }
+        }
 
         return $this;
     }
