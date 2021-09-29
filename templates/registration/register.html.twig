@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Register{% endblock %}
+{% block title %}Misoratra{% endblock %}
 
 {% block body %}
     <div class="container mt-15">
@@ -10,21 +10,33 @@
         <div class="alert alert-danger" role="alert">{{ flashError }}</div>
     {% endfor %}
 
-            <h1>Inscription</h1>
+            <h1>Fisoratana anarana</h1>
 
             {{ form_start(registrationForm) }}
-                {{ form_row(registrationForm.email) }}
+                {{ form_row(registrationForm.email, { label: 'Mailaka'}) }}
                 {{ form_row(registrationForm.plainPassword, {
-                    label: 'Password'
+                    label: 'Teny miafina'
                 }) }}
-                {{ form_row(registrationForm.agreeTerms) }}
+                {{ form_row(registrationForm.pseudo, {
+                    label: 'Solon\'anarana (Pseudo)'
+                }) }}
+                {{ form_row(registrationForm.firstname, {
+                    label: 'Anarana'
+                }) }}
+                {{ form_row(registrationForm.lastname, {
+                    label: 'Fanampiny'
+                }) }}
+                {{ form_row(registrationForm.facebook, {
+                    label: 'Rohy facebook'
+                }) }}
+                {{ form_row(registrationForm.agreeTerms, {label : 'Manaiky ny fitsipika'}) }}
 
                 
                 <div class="d-grid gap-2">
-                    <button type="submit" class="btn btn-info mt-2">S'inscrire</button>
+                    <button type="submit" class="btn btn-info mt-2">Misoratra</button>
 
                     <hr>
-                        <p class="text-center"> Vous êtes inscrit? Connecter vous <a href="{{ path ('app_login')}}">ici</a> </p> 
+                        <p class="text-center"> Efa voasoratra ny anaranao? Midira <a href="{{ path ('app_login')}}">eto</a> </p> 
                 </div>
             {{ form_end(registrationForm) }}
             </div>

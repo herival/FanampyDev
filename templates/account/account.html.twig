@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}kaonty{% endblock %}
+
+{% block body %}
+
+<div class="container mt-10">
+
+    {% for flashMessage in app.flashes('success') %}
+    <div class="alert alert-info" role="alert">{{ flashMessage }}</div>
+    {% endfor %}
+
+    <h1>Ny kaontiko</h1>
+    <p> Tongasoa {{ app.user.firstname }} ato amin'ny fandrindrana ny kaontinao</p> 
+    - <a href="{#{ path ('account_password') }#}"> Soloiko ny teny miafina </a> <br/>
+    
+</div>
+
+{% endblock %}
