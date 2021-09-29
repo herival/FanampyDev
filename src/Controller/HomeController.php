@@ -17,4 +17,12 @@ class HomeController extends AbstractController
             'controller_name' => 'HomeController',
         ]);
     }
+
+    /**
+     * @Route("/defaultsite", name="redirection")
+     */
+    public function redirection(): Response
+    {
+        return $this->redirectToRoute('home');
+    }
 }
