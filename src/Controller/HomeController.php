@@ -10,7 +10,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class HomeController extends AbstractController
 {
     /**
-     * @Route("/", name="home")
+     * @Route("/home", name="home")
      */
     public function index(ShareRepository $shareRepository): Response
     {
@@ -24,6 +24,14 @@ class HomeController extends AbstractController
      * @Route("/defaultsite", name="redirection")
      */
     public function redirection(): Response
+    {
+        return $this->redirectToRoute('home');
+    }
+
+    /**
+     * @Route("/", name="redirection2")
+     */
+    public function redirecttohome(): Response
     {
         return $this->redirectToRoute('home');
     }
