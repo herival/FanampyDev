@@ -18,7 +18,7 @@
         <div class="card-body">
           <h5 class="card-title">{{share.name}}</h5>
           <p class="card-text">{{share.description}}</p>
-          <a href="{{ asset ('uploads/')}}{{share.file}}" target="_blank" class="btn btn-info">Alaiko dia hianarako!</a>
+          <a href="{{ asset ('uploads/')}}" download="{{share.file}}" target="_blank" class="btn btn-info">Alaiko dia hianarako!</a>
         </div>
     </div>
     {% endfor %}
