@@ -38,7 +38,12 @@ class ShareType extends AbstractType
             ->add('file', FileType::class, [
                 'label' => 'Rakitra',
                 'mapped' => false,
-                'required' => true
+                'required' => true,
+                'constraints' => [
+                    new File([
+                        'maxSize' => '10M',
+                    ])
+                ]
                 
             ])
             ->add('description', TextareaType::class, [
