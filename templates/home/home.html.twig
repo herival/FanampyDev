@@ -70,8 +70,8 @@
         <div class="col-md-6 col-lg-3 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="{{delay}}">
           <div class="icon-box">
             <div class="icon"><i class="bx bxl-dribbble"></i></div>
-            <h4 class="title"><a href="">{{share.name}}</a></h4>
-            <p class="description">{{share.description}}</p>
+            <h4 class="title"><a href="{{path ('all_share')}}">{{share.name}}</a></h4>
+            <p class="description">{{share.description |slice(0, 100)}}...</p>
           </div>
         </div>
         {% set delay = delay + 100 %}
